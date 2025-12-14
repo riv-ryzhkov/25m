@@ -1,4 +1,4 @@
-from lib2to3.fixes.fix_input import context
+#from lib2to3.fixes.fix_input import context
 
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
