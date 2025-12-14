@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Books
+{% endblock %}
+
+{% block content %}
+<h1> Головна сторінка сайту.</h1>
+{% if books %}
+    {% for el in books %}
+        <div class="alert alert-secondary mt-2">
+            <h3><u>{{ el.title }}</u></h3>
+            <p><b>{{ el.author }}</b></p>
+            <p><i>{{ el.text }}</i></p>
+            <p><b>Видано:{{ el.published }}</b></p>
+            <p><b>Кількість книжок:{{ el.count }}</b></p>
+            <p><b>Зареєстровано:{{ el.created }}</b></p>
+        </div>
+    {% endfor %}
+{% else %}
+    <h3>В цьому каталозі, нажаль, такі книжки відсутні...</h3>
+{% endif %}
+{% endblock %}
+

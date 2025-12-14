@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Main
+{% endblock %}
+
+{% block content %}
+<h3> Всі книжки бібліотеки:</h3>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Назва</th>
+        <th scope="col">Автор</th>
+        <th scope="col">Опис</th>
+        <th scope="col">Кількість</th>
+    </tr>
+    </thead>
+    <tbody>
+
+{% if books %}
+    {% for el in books %}
+        <tr>
+            <th scope="row">{{ el.id }}</th>
+            <td>{{ el.title|truncatewords:3 }}</td>
+            <td>{{ el.author|upper }}</td>
+            <td>{{ el.text|truncatewords:16 }}</td>
+            <td>{{ el.count }}</td>
+            <td>
+                <a type="button" class="btn btn-white btn-sm" href="/book/{{ el.id }}/view">
+                <img src="https://static.vecteezy.com/system/resources/previews/000/649/524/original/view-icon-symbol-sign-vector.jpg" width="24" height="24">
+                </a>
+                <a type="button" class="btn btn-white btn-sm" href="/book/{{ el.id }}/edit">
+                <img src="https://th.bing.com/th/id/OIP.d1sTN41laBxAg-Uy_pXvmgHaHx?rs=1&pid=ImgDetMain" width="24" height="24">
+                </a>
+                <a type="button" class="btn btn-white btn-sm" href="/book/{{ el.id }}/delete">
+                <img src="https://th.bing.com/th/id/OIP.h34-YZFupmVzJd6rKwTJJgAAAA?rs=1&pid=ImgDetMain" width="24" height="24"></a> </td>
+        </tr>
+    {% endfor %}
+{% else %}
+    <h3>В цьому каталозі, нажаль, такі книжки відсутні...</h3>
+{% endif %}
+    </tbody>
+</table>
+{% endblock %}
+
