@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from .main import views
 from .views import IndexTab
 
 urlpatterns = [
